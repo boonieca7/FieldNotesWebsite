@@ -1,6 +1,9 @@
 /* Editor view for the theme's small blocks: each shows its real output from the server. */
 ( function ( blocks, element, ServerSideRender, blockEditor ) {
 	var el = element.createElement;
+	var empty = function () {
+		return null;
+	};
 	var perPost = { 'post-mark': true, 'journey-label': true, 'series-badge': true };
 
 	[ 'brand', 'route', 'post-mark', 'journey-label', 'series-badge' ].forEach( function ( name ) {
@@ -22,7 +25,7 @@
 				return el(
 					'div',
 					blockEditor.useBlockProps(),
-					el( ServerSideRender, { block: full, attributes: attrs } )
+					el( ServerSideRender, { block: full, attributes: attrs, EmptyResponsePlaceholder: empty } )
 				);
 			},
 			save: function () {

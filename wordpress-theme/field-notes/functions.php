@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ . '/inc/marks.php';
 
-const FIELDNOTES_VERSION = '1.0.0';
+const FIELDNOTES_VERSION = '1.0.1';
 const FIELDNOTES_FONTS   = 'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap';
 
 /**
@@ -46,7 +46,7 @@ add_action(
 	function () {
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'editor-styles' );
-		add_editor_style( array( FIELDNOTES_FONTS, 'style.css' ) );
+		add_editor_style( array( FIELDNOTES_FONTS, 'style.css', 'assets/editor.css' ) );
 	}
 );
 
@@ -189,7 +189,7 @@ add_action(
 				'uses_context'    => array( 'postId' ),
 				'render_callback' => function ( $attributes, $content, $block ) {
 					$id = fieldnotes_post_id_from( $attributes, $block );
-					return '<div class="fn-sticker">' . fieldnotes_mark_svg( fieldnotes_mark_for_post( $id ), 96, '#1C2F3C', '#F5EEE6' ) . '</div>';
+					return '<div ' . get_block_wrapper_attributes( array( 'class' => 'fn-sticker' ) ) . '>' . fieldnotes_mark_svg( fieldnotes_mark_for_post( $id ), 96, '#1C2F3C', '#F5EEE6' ) . '</div>';
 				},
 			)
 		);

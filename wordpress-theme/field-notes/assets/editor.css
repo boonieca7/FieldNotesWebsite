@@ -1,0 +1,33 @@
+/*
+ * Editor only. The live site turns the five newest posts into a rotating carousel
+ * with a script; the editor does not run that script, so here the five slides sit
+ * side by side and scroll sideways, one at a time.
+ */
+.editor-styles-wrapper .fn-carousel .wp-block-post-template {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	gap: 0 !important;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	padding: 34px 0 12px 30px !important;
+	scrollbar-color: #B3362C #CFCFCA;
+}
+.editor-styles-wrapper .fn-carousel .wp-block-post-template > * {
+	flex: 0 0 100% !important;
+	max-width: 100% !important;
+	scroll-snap-align: start;
+	padding-right: 40px;
+	box-sizing: border-box;
+}
+.editor-styles-wrapper .fn-carousel::after {
+	content: "Carousel: scroll sideways to see all five slides. On the live site they rotate every six seconds, with arrows, a pause button and progress bars.";
+	display: block;
+	margin-top: 14px;
+	padding: 10px 14px;
+	border: 1.5px dashed #B3362C;
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 12px;
+	letter-spacing: 0.04em;
+	color: #4A6274;
+}

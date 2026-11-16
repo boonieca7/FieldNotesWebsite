@@ -3,7 +3,7 @@ Theme Name: Field Notes From Abroad
 Theme URI: https://fieldnotesfromabroad.com/
 Author: Chrystin McLelland
 Description: Harbor navy, kraft and paper, photos on white mats, a red thread, and a rotating set of travel marks. Journeys are categories, series are tags.
-Version: 1.0.0
+Version: 1.0.1
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -141,10 +141,14 @@ Text Domain: field-notes
 .fn-mat { position: relative; background: #fff; padding: 14px 14px 16px; box-shadow: 0 1px 3px rgba(28, 47, 60, 0.2); transform: rotate(1.2deg); }
 .fn-mat .wp-block-post-featured-image { margin: 0; }
 .fn-mat .wp-block-post-featured-image img { width: 100%; height: clamp(240px, 32vw, 400px); object-fit: cover; display: block; }
-.fn-sticker {
-	position: absolute;
+.fn-mat > .wp-block-fieldnotes-post-mark {
+	position: absolute !important;
 	top: -30px;
 	left: -26px;
+	margin: 0 !important;
+	z-index: 2;
+}
+.fn-sticker {
 	background: var(--fn-paper);
 	border-radius: 50%;
 	padding: 6px;
@@ -152,7 +156,8 @@ Text Domain: field-notes
 	transform: rotate(-8deg);
 	line-height: 0;
 }
-.wp-block-post:nth-child(even) .fn-sticker { transform: rotate(7deg); }
+.wp-block-post:nth-child(even) .fn-sticker,
+.wp-block-post:nth-child(even) .fn-mat > .wp-block-fieldnotes-post-mark .fn-sticker { transform: rotate(7deg); }
 
 .fn-carousel__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 32px; }
 .fn-carousel__buttons { display: flex; gap: 10px; }
@@ -270,7 +275,7 @@ Text Domain: field-notes
 /* Small screens --------------------------------------------------------- */
 @media (max-width: 781px) {
 	.fn-mat { transform: rotate(0.6deg); }
-	.fn-sticker { top: -24px; left: -10px; }
+	.fn-mat > .wp-block-fieldnotes-post-mark { top: -24px; left: -10px; }
 	.fn-sticker .fn-mark { width: 64px; height: 64px; }
 	.fn-carousel.is-carousel .wp-block-post-template { min-height: 0; }
 	.fn-slide { flex-direction: column-reverse; }
