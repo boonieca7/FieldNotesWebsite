@@ -2,8 +2,8 @@
 Theme Name: Field Notes From Abroad
 Theme URI: https://fieldnotesfromabroad.com/
 Author: Chrystin McLelland
-Description: Harbor navy, kraft and paper, photos on white mats, a red thread, and a rotating set of travel marks. Journeys are categories, series are tags.
-Version: 1.0.1
+Description: Harbor navy, kraft and paper, photos on white mats, a red thread, and a rotating set of travel marks. Countries are categories, series are tags.
+Version: 1.1.0
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -286,3 +286,33 @@ Text Domain: field-notes
 /* Titles keep the ink colour; only hover turns red. */
 .wp-block-post-title a { color: inherit !important; }
 .wp-block-post-title a:hover { color: var(--fn-red) !important; }
+
+/* Country label on posts ("Romania · Hunedoara") */
+.fn-journey-label a { color: inherit !important; text-decoration: none; }
+.fn-journey-label a:hover { text-decoration: underline; }
+
+/* Map ----------------------------------------------------------------- */
+.fn-map { display: flex; flex-direction: column; gap: 22px; }
+.fn-map__frame { background: #fff; padding: 12px; box-shadow: 0 1px 3px rgba(28, 47, 60, 0.2); }
+.fn-map__svg { display: block; width: 100%; height: auto; }
+.fn-map__sea { fill: #DCE3E7; }
+.fn-map__land { fill: #E6DCCD; stroke: #F5EEE6; stroke-width: 0.8; }
+.fn-map__visited path { fill: var(--fn-navy); stroke: #F5EEE6; stroke-width: 0.8; transition: fill 0.15s; }
+.fn-map__visited:hover path,
+.fn-map__visited:focus path { fill: var(--fn-red); }
+.fn-map__visited:focus { outline: none; }
+.fn-map__visited:focus-visible path { stroke: var(--fn-red); stroke-width: 3; }
+.fn-map__label { pointer-events: none; }
+.fn-map__label circle { fill: var(--fn-red); stroke: #fff; stroke-width: 2; }
+.fn-map__name { font-family: var(--fn-cond); font-weight: 700; font-size: 17px; letter-spacing: 0.06em; fill: var(--fn-navy); paint-order: stroke; stroke: #F5EEE6; stroke-width: 4px; stroke-linejoin: round; }
+.fn-map__count { font-family: var(--fn-mono); font-size: 10px; letter-spacing: 0.08em; fill: var(--fn-slate); paint-order: stroke; stroke: #F5EEE6; stroke-width: 3px; stroke-linejoin: round; }
+@media (min-width: 900px) {
+	.fn-map { flex-direction: row; align-items: center; gap: 32px; }
+	.fn-map__frame { flex: 1 1 auto; min-width: 0; }
+	.fn-map .fn-route { flex: 0 0 260px; flex-direction: column; }
+}
+@media (max-width: 899px) {
+	.fn-map__name { font-size: 30px; stroke-width: 6px; }
+	.fn-map__count { display: none; }
+	.fn-map__label circle { r: 8; }
+}
