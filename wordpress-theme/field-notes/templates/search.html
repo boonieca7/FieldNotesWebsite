@@ -1,0 +1,49 @@
+<!-- wp:template-part {"slug":"header","tagName":"div"} /-->
+
+<!-- wp:group {"tagName":"main","className":"fn-archive","style":{"spacing":{"padding":{"top":"0","bottom":"64px"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<main class="wp-block-group fn-archive" style="padding-top:0;padding-bottom:64px"><!-- wp:group {"className":"fn-archive-head","layout":{"type":"default"}} -->
+<div class="wp-block-group fn-archive-head"><!-- wp:query-title {"type":"search"} /-->
+
+<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search field notes","buttonText":"Search"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"fn-thread","style":{"spacing":{"margin":{"bottom":"36px"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group fn-thread" style="margin-bottom:36px"></div>
+<!-- /wp:group -->
+
+<!-- wp:query {"queryId":2,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"className":"fn-cards","layout":{"type":"default"}} -->
+<div class="wp-block-query fn-cards"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"260px"}} -->
+<!-- wp:group {"className":"fn-card","layout":{"type":"default"}} -->
+<div class="wp-block-group fn-card"><!-- wp:post-featured-image {"isLink":true,"sizeSlug":"large"} /-->
+
+<!-- wp:group {"className":"fn-card__body","layout":{"type":"default"}} -->
+<div class="wp-block-group fn-card__body"><!-- wp:group {"className":"fn-card__meta","layout":{"type":"flex","justifyContent":"space-between"}} -->
+<div class="wp-block-group fn-card__meta"><!-- wp:post-date {"format":"d.m.Y"} /-->
+
+<!-- wp:fieldnotes/series-badge /--></div>
+<!-- /wp:group -->
+
+<!-- wp:post-title {"level":3,"isLink":true} /-->
+
+<!-- wp:post-excerpt {"excerptLength":30} /-->
+
+<!-- wp:fieldnotes/journey-label /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<!-- wp:query-pagination-previous {"label":"Newer notes"} /-->
+
+<!-- wp:query-pagination-next {"label":"Older notes"} /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No field notes here yet.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"div"} /-->
